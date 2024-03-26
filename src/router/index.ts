@@ -34,6 +34,29 @@ const routes: Array<RouteRecordRaw> = [
         },
       },
       {
+        path: '/tenants',
+        name: 'TenantsList',
+        component: () => import('@/views/tenants/TenantsList.vue'),
+        meta: {
+          pageTitle: "TenantsList",
+          breadcrumbs: ["Tenants"],
+        },
+      },
+      {
+        path: '/tenants/:id',
+        name: 'TenantDetails',
+        component: () => import('@/views/tenants/TenantDetails.vue')
+      },
+      {
+        path: '/roles',
+        name: 'RolesList',
+        component: () => import('@/views/roles/RolesList.vue'),
+        meta: {
+          pageTitle: "RolesList",
+          breadcrumbs: ["roles"],
+        },
+      },
+      {
         path: "/crafted/pages/profile",
         name: "profile",
         component: () => import("@/components/page-layouts/Profile.vue"),

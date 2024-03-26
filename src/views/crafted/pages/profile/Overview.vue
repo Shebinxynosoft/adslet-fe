@@ -1,48 +1,47 @@
+
 <template>
-  <div class="row g-5 g-xxl-8">
-    <div class="col-xl-6">
-      <KTWidget1 widget-classes="mb-5 mb-xxl-8"></KTWidget1>
-      <KTWidget2 widget-classes="mb-5 mb-xxl-8"></KTWidget2>
-      <KTWidget3 widget-classes="mb-5 mb-xxl-8"></KTWidget3>
-      <KTWidget4 widget-classes="mb-5 mb-xxl-8"></KTWidget4>
-      <KTWidget5 widget-classes="mb-5 mb-xxl-8"></KTWidget5>
-      <KTWidget6 widget-classes="mb-5 mb-xxl-8"></KTWidget6>
-    </div>
-
-    <div class="col-xl-6">
-      <KTChartWidget1 widget-classes="mb-5 mb-xxl-8"></KTChartWidget1>
-
-      <KTListWidget5 widget-classes="mb-5 mb-xxl-8"></KTListWidget5>
-
-      <KTEngageWidget1 widget-classes="mb-5 mb-xxl-8"></KTEngageWidget1>
+  <!--begin::Row-->
+  <div class="row g-5 g-xl-8">
+    <div v-for="role in roles" :key="role.id" class="col-xl-4">
+      <div class="card card-xl-stretch mb-xl-8">
+        <div class="card-body">
+          <h3>{{ role.name }}</h3>
+        </div>
+      </div>
     </div>
   </div>
+  <!--end::Row-->
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import KTWidget1 from "@/components/widgets/feeds/Widget1.vue";
-import KTWidget2 from "@/components/widgets/feeds/Widget2.vue";
-import KTWidget3 from "@/components/widgets/feeds/Widget3.vue";
-import KTWidget4 from "@/components/widgets/feeds/Widget4.vue";
-import KTWidget5 from "@/components/widgets/feeds/Widget5.vue";
-import KTWidget6 from "@/components/widgets/feeds/Widget6.vue";
-import KTChartWidget1 from "@/components/widgets/charts/Widget1.vue";
-import KTListWidget5 from "@/components/widgets/lists/Widget5.vue";
-import KTEngageWidget1 from "@/components/widgets/engage/Widget1.vue";
+import axios from "axios";
 
 export default defineComponent({
-  name: "profile-overview",
-  components: {
-    KTWidget1,
-    KTWidget2,
-    KTWidget3,
-    KTWidget4,
-    KTWidget5,
-    KTWidget6,
-    KTChartWidget1,
-    KTListWidget5,
-    KTEngageWidget1,
+  name: "widgets-lists",
+  data() {
+    return {
+      roles: [] as any[] // Define an empty array to store roles data
+    };
   },
+  mounted() {
+    // Fetch roles data when the component is mounted
+    this.fetchRoles();
+  },
+  methods: {
+    fetchRoles() {
+      // Use axios to fetch data from the API endpoint
+      axios.get("http://localhost:8000/api/roles")
+        .then(response => {
+          // Assign the fetched data to the roles array
+          this.roles = response.data;
+        })
+        .catch(error => {
+          console.error("Error fetching roles:", error);
+          // Optionally, you can set a default error message or handle the error in another way
+        });
+    }
+  }
 });
 </script>
+

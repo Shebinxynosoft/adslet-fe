@@ -4,9 +4,9 @@
     <!--begin::Header-->
     <div class="card-header border-0 pt-5">
       <h3 class="card-title align-items-start flex-column">
-        <span class="card-label fw-bold fs-3 mb-1">Members Statistics</span>
+        <span class="card-label fw-bold fs-3 mb-1">Tenants List</span>
 
-        <span class="text-muted mt-1 fw-semibold fs-7">Over 500 members</span>
+      
       </h3>
 
       <div
@@ -20,15 +20,63 @@
           href="#"
           class="btn btn-sm btn-light-primary"
           data-bs-toggle="modal"
-          data-bs-target="#kt_modal_invite_friends"
+          data-bs-target="#exampleModal"
         >
           <KTIcon icon-name="plus" icon-class="fs-3" />
-          New Member
+          New Tenants
         </a>
       </div>
     </div>
     <!--end::Header-->
+<!-- Button trigger modal -->
 
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Create Tenants</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+    <div class="mb-6">
+  <label for="name" class="form-label">Name</label>
+  <input type="text"  name="name" class="form-control" id="name"  placeholder="Enter Name">
+</div>
+<div class="mb-3">
+  <label for="slug" class="form-label">Slug</label>
+  <input type="text" class="form-control" id="slug" name="slug" placeholder="Slug name">
+</div>
+<div class="mb-3">
+  <label for="email" class="form-label">Email address</label>
+  <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com">
+</div>
+<div class="mb-6">
+  <label for="no_of_terminals" class="form-label">No of Terminals</label>
+  <input type="text" class="form-control" id="no_of_terminals" name="no_of_terminals" placeholder="name@example.com">
+</div>
+<div class="mb-3">
+  <label for="phone_number" class="form-label">Phone Number</label>
+  <input type="text" class="form-control" id="phone_number" name="phone_number"  placeholder="Phone Number">
+</div>
+<div class="mb-3">
+  <label for="wallet" class="form-label"> Wallet</label>
+  <input type="text" class="form-control" id="wallet" name="wallet" placeholder="Wallet">
+</div>
+<div class="mb-3">
+  <label for="Address" class="form-label">Address</label>
+  <textarea class="form-control" id="address"  name="address" rows="3"></textarea>
+</div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
     <!--begin::Body-->
     <div class="card-body py-3">
       <!--begin::Table container-->
@@ -40,25 +88,15 @@
           <!--begin::Table head-->
           <thead>
             <tr class="fw-bold text-muted">
-              <th class="w-25px">
-                <div
-                  class="form-check form-check-sm form-check-custom form-check-solid"
-                >
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    @change="
-                      checkedRows.length === 6
-                        ? (checkedRows.length = 0)
-                        : (checkedRows = [0, 1, 2, 3, 4, 5])
-                    "
-                  />
-                </div>
-              </th>
-              <th class="min-w-150px">Authors</th>
-              <th class="min-w-140px">Company</th>
-              <th class="min-w-120px">Progress</th>
-              <th class="min-w-100px text-end">Actions</th>
+            
+              <th>Name</th>
+              <th>Slug</th>
+              <th >Email</th>
+              <th >No of Terminals</th>
+              <th >Phone Number</th>
+              <th >Wallet</th>
+          
+              <th>Actions</th>
             </tr>
           </thead>
           <!--end::Table head-->
@@ -67,7 +105,7 @@
           <tbody>
             <template v-for="(item, index) in list" :key="index">
               <tr>
-                <td>
+                <!-- <td>
                   <div
                     class="form-check form-check-sm form-check-custom form-check-solid"
                   >
@@ -78,13 +116,11 @@
                       v-model="checkedRows"
                     />
                   </div>
-                </td>
+                </td> -->
 
                 <td>
                   <div class="d-flex align-items-center">
-                    <div class="symbol symbol-45px me-5">
-                      <img :src="item.image" alt="" />
-                    </div>
+                   
                     <div class="d-flex justify-content-start flex-column">
                       <a
                         href="#"
@@ -92,10 +128,7 @@
                         >{{ item.name }}</a
                       >
 
-                      <span
-                        class="text-muted fw-semibold text-muted d-block fs-7"
-                        >{{ item.skills }}</span
-                      >
+                   
                     </div>
                   </div>
                 </td>
@@ -106,10 +139,7 @@
                     class="text-gray-900 fw-bold text-hover-primary d-block fs-6"
                     >{{ item.companyName }}</a
                   >
-                  <span
-                    class="text-muted fw-semibold text-muted d-block fs-7"
-                    >{{ item.companySkills }}</span
-                  >
+                 
                 </td>
 
                 <td class="text-end">
@@ -133,7 +163,30 @@
                     </div>
                   </div>
                 </td>
-
+                <td>
+                  <a
+                    href="#"
+                    class="text-gray-900 fw-bold text-hover-primary d-block fs-6"
+                    >{{ item.companyName }}</a
+                  >
+                
+                </td>
+                <td>
+                  <a
+                    href="#"
+                    class="text-gray-900 fw-bold text-hover-primary d-block fs-6"
+                    >{{ item.companyName }}</a
+                  >
+               
+                </td>
+                <td>
+                  <a
+                    href="#"
+                    class="text-gray-900 fw-bold text-hover-primary d-block fs-6"
+                    >{{ item.companyName }}</a
+                  >
+                
+                </td>
                 <td class="text-end">
                   <a
                     href="#"

@@ -3,7 +3,7 @@
   <div class="d-flex flex-wrap flex-stack my-5">
     <!--begin::Heading-->
     <h2 class="fs-2 fw-semibold my-2">
-      Projects
+      Tenants
       <span class="fs-6 text-gray-500 ms-1">by Status</span>
     </h2>
     <!--end::Heading-->
@@ -213,7 +213,7 @@ import { defineComponent } from "vue";
 import KTCard from "@/components/cards/Card1.vue";
 
 export default defineComponent({
-  name: "profile-projects",
+  name: "profile-tenants",
   components: {
     KTCard,
   },
