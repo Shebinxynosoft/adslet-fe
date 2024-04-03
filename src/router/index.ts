@@ -57,6 +57,90 @@ const routes: Array<RouteRecordRaw> = [
         },
       },
       {
+        path: '/role',
+        name: 'RoleList',
+        component: () => import('@/views/role/RoleList.vue'),
+        meta: {
+          pageTitle: "RoleList",
+          breadcrumbs: ["role"],
+        },
+      },
+      {
+        path: '/branches',
+        name: 'BranchList',
+        component: () => import('@/views/branches/BranchList.vue'),
+        meta: {
+          pageTitle: "BranchList",
+          breadcrumbs: ["branches"],
+        },
+      },
+      {
+        path: '/questions',
+        name: 'QuestionList',
+        component: () => import('@/views/questions/QuestionList.vue'),
+        meta: {
+          pageTitle: "QuestionList",
+          breadcrumbs: ["questions"],
+        },
+      },
+      {
+        path: '/terminal',
+        name: 'TerminalList',
+        component: () => import('@/views/terminal/TerminalList.vue'),
+        meta: {
+          pageTitle: "TerminalList",
+          breadcrumbs: ["terminal"],
+        },
+      },
+      {
+        path: '/terminalquestions',
+        name: 'TerminalQuestionsList.vue',
+        component: () => import('@/views/terminalquestions/TerminalQuestionsList.vue'),
+        meta: {
+          pageTitle: "TerminalQuestionsList",
+          breadcrumbs: ["terminalquestions"],
+        },
+      },
+      {
+        path: '/smshistory',
+        name: 'SmsHistoryList',
+        component: () => import('@/views/smshistory/SmsHistoryList.vue'),
+        meta: {
+          pageTitle: "SmsHistoryList",
+          breadcrumbs: ["smshistory"],
+        },
+      },
+      {
+        path: '/smsgateway',
+        name: 'SmsGatewayList',
+        component: () => import('@/views/smsgateway/SmsGatewayList.vue'),
+        meta: {
+          pageTitle: "SmsGatewayList",
+          breadcrumbs: ["smsgateway"],
+        },
+      },
+      {
+        path: '/smscampaign',
+        name: 'SmsCampaignList',
+        component: () => import('@/views/smscampaign/SmsCampaignList.vue'),
+        meta: {
+          pageTitle: "Sms Campaign List",
+          breadcrumbs: ["smscampaign"],
+        },
+      },
+      {
+        path: '/smsgroups',
+        name: 'SmsGroupList',
+        component: () => import('@/views/smsgroups/SmsGroupList.vue'),
+        meta: {
+          pageTitle: "Sms GroupList",
+          breadcrumbs: ["smsgroups"],
+        },
+      },
+
+
+
+      {
         path: "/crafted/pages/profile",
         name: "profile",
         component: () => import("@/components/page-layouts/Profile.vue"),

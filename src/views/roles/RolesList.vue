@@ -265,7 +265,7 @@
         v-model="targetData.name"
         placeholder="Enter Role Name"
         name="name"
-        :value="role.name"
+        :value="(role as any).name"
       ></el-input>
    </el-form-item>
             </div>

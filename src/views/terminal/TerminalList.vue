@@ -1,10 +1,11 @@
+
 <template>
   <!--begin::Tables Widget 9-->
   <div class="card" :class="widgetClasses">
     <!--begin::Header-->
     <div class="card-header border-0 pt-5">
       <h3 class="card-title align-items-start flex-column">
-        <span class="card-label fw-bold fs-3 mb-1">Tenants List</span>
+        <span class="card-label fw-bold fs-3 mb-1">Terminal List</span>
       </h3>
       <div
         class="card-toolbar"
@@ -20,7 +21,7 @@
           data-bs-target="#kt_modal_create_api_key"
         >
           <KTIcon icon-name="plus" icon-class="fs-3" />
-          New Tenants
+          New Terminal
         </a>
       </div>
     </div>
@@ -36,140 +37,95 @@
         >
           <!--begin::Table head-->
           <thead>
-            <tr class="fw-bold text-muted">
-              <th>Name</th>
-              <th>Slug</th>
-              <th>No of Terminals</th>         
-              <th>Email</th>
-              <th>PhoneNnumber</th>
-              <th>Wallet</th>
-              <th>Address 1</th>
-              <th>Address 2</th>
-              <!-- <th>Actions</th> -->
-            </tr>
-          </thead>
+              <tr class="fw-bold text-muted">
+                <th>Branch</th>
+                <th>TerminalName</th>
+                <th>Terminal Code</th>
+                <th>Status</th>                   
+                <!-- <th>Actions</th> -->
+              </tr>
+            </thead>
           <!--end::Table head-->
 
           <!--begin::Table body-->
           <tbody>
-            <template v-for="(tenant, index) in tenants" :key="index">
-              <tr>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <div class="d-flex justify-content-start flex-column">
-                      <a
-                        href="#"
-                        class="text-gray-900 fw-bold text-hover-primary fs-6"
-                        >{{ tenant.name }}</a
-                      >
+              <template v-for="(terminal, index) in terminals" :key="index">
+                <tr>
+                  <td>
+                    <div class="d-flex align-items-center">
+                      <div class="d-flex justify-content-start flex-column">
+                        <a
+                          href="#"
+                          class="text-gray-900 fw-bold text-hover-primary fs-6"
+                          >{{ terminal.branch_id }}</a
+                        >
+                      </div>
                     </div>
-                  </div>
-                </td>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <div class="d-flex justify-content-start flex-column">
-                      <a
-                        href="#"
-                        class="text-gray-900 fw-bold text-hover-primary fs-6"
-                        >{{ tenant.slug }}</a
-                      >
+                  </td>
+                  <td>
+                    <div class="d-flex align-items-center">
+                      <div class="d-flex justify-content-start flex-column">
+                        <a
+                          href="#"
+                          class="text-gray-900 fw-bold text-hover-primary fs-6"
+                          >{{ terminal.terminal_name }}</a
+                        >
+                      </div>
                     </div>
-                  </div>
-                </td>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <div class="d-flex justify-content-start flex-column">
-                      <a
-                        href="#"
-                        class="text-gray-900 fw-bold text-hover-primary fs-6"
-                        >{{ tenant.no_of_terminals }}</a
-                      >
+                  </td>
+                  <td>
+                    <div class="d-flex align-items-center">
+                      <div class="d-flex justify-content-start flex-column">
+                        <a
+                          href="#"
+                          class="text-gray-900 fw-bold text-hover-primary fs-6"
+                          >{{ terminal.terminal_code }}</a
+                        >
+                      </div>
                     </div>
-                  </div>
-                </td>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <div class="d-flex justify-content-start flex-column">
-                      <a
-                        href="#"
-                        class="text-gray-900 fw-bold text-hover-primary fs-6"
-                        >{{ tenant.email }}</a
-                      >
+                  </td>
+                  <td>
+                    <div class="d-flex align-items-center">
+                      <div class="d-flex justify-content-start flex-column">
+                        <a
+                          href="#"
+                          class="text-gray-900 fw-bold text-hover-primary fs-6"
+                          >{{ terminal.status }}</a
+                        >
+                      </div>
                     </div>
-                  </div>
-                </td>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <div class="d-flex justify-content-start flex-column">
-                      <a
-                        href="#"
-                        class="text-gray-900 fw-bold text-hover-primary fs-6"
-                        >{{ tenant.phone_number }}</a
-                      >
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <div class="d-flex justify-content-start flex-column">
-                      <a
-                        href="#"
-                        class="text-gray-900 fw-bold text-hover-primary fs-6"
-                        >{{ tenant.wallet }}</a
-                      >
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <div class="d-flex justify-content-start flex-column">
-                      <a
-                        href="#"
-                        class="text-gray-900 fw-bold text-hover-primary fs-6"
-                        >{{ tenant.address1 }}</a
-                      >
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <div class="d-flex justify-content-start flex-column">
-                      <a
-                        href="#"
-                        class="text-gray-900 fw-bold text-hover-primary fs-6"
-                        >{{ tenant.address2 }}</a
-                      >
-                    </div>
-                  </div>
-                </td>
-                <td class="text-end">
-                  <a
-                    href="#"
-                    class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1"
-                  >
-                    <KTIcon icon-name="switch" icon-class="fs-3" />
+                  </td>
+                 
+                  
+                 
+                  <td class="text-end">
+                    <a
+                      href="#"
+                      class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1"
+                    >
+                      <KTIcon icon-name="switch" icon-class="fs-3" />
+                    </a>
+                 
+                    <a
+                      data-bs-toggle="modal"
+                      data-bs-target="#kt_modal_new_branch1"
+                      href="#"
+                      class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1"
+                      @click.prevent="">
+                      <KTIcon icon-name="pencil" icon-class="fs-3" />
                   </a>
-               
-                  <a
-                    data-bs-toggle="modal"
-                    data-bs-target="#kt_modal_new_tenant1"
-                    href="#"
-                    class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1"
-                    @click.prevent="">
-                    <KTIcon icon-name="pencil" icon-class="fs-3" />
+  
+                    <a
+                  href="#"
+                  class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm"
+                  @click.prevent="deleteTerminal(terminal.id)"
+                >
+                  <KTIcon icon-name="trash" icon-class="fs-3" />
                 </a>
-
-                  <a
-                href="#"
-                class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm"
-                @click.prevent="deleteTenant(tenant.id)"
-              >
-                <KTIcon icon-name="trash" icon-class="fs-3" />
-              </a>
-                </td>
-              </tr>
-            </template>
-          </tbody>
+                  </td>
+                </tr>
+              </template>
+            </tbody>
           <!--end::Table body-->
         </table>
         <!--end::Table-->
@@ -199,7 +155,7 @@
         <!--begin::Modal header-->
         <div class="modal-header" id="kt_modal_create_api_key_header">
           <!--begin::Modal title-->
-          <h2>Create Tenant</h2>
+          <h2>Create Terminal</h2>
           <!--end::Modal title-->
 
           <!--begin::Close-->
@@ -238,20 +194,20 @@
               <!--begin::Input group-->
               <div class="mb-5 fv-row">
                 <!--begin::Label-->
-                <label class="required fs-5 fw-semibold mb-2">Tenant Name</label>
+                <label class="required fs-5 fw-semibold mb-2">Branch</label>
                 <!--end::Label-->
 
                 <!--begin::Input-->
                 <Field
                   type="text"
                   class="form-control form-control-solid"
-                  placeholder="Tenant Name"
-                  name="name"
-                  v-model="tenantData.name"
+                  placeholder="Branch Name"
+                  name="branch_id"
+                  v-model="terminalData.branch_id"
                 />
                 <div class="fv-plugins-message-container">
                   <div class="fv-help-block">
-                    <ErrorMessage name="name" />
+                    <ErrorMessage name="branch_id" />
                   </div>
                 </div>
                 <!--end::Input-->
@@ -260,20 +216,20 @@
                 <!--begin::Input group-->
                 <div class="mb-5 fv-row">
                 <!--begin::Label-->
-                <label class="required fs-5 fw-semibold mb-2">Slug</label>
+                <label class="required fs-5 fw-semibold mb-2">TerminalName</label>
                 <!--end::Label-->
 
                 <!--begin::Input-->
                 <Field
                   type="text"
                   class="form-control form-control-solid"
-                  placeholder="Slug Name"
-                  name="slug"
-                  v-model="tenantData.slug"
+                  placeholder="Terminal Name"
+                  name="terminal_name"
+                  v-model="terminalData.terminal_name"
                 />
                 <div class="fv-plugins-message-container">
                   <div class="fv-help-block">
-                    <ErrorMessage name="slug" />
+                    <ErrorMessage name="terminal_name" />
                   </div>
                 </div>
                 <!--end::Input-->
@@ -282,7 +238,7 @@
                 <!--begin::Input group-->
                 <div class="mb-5 fv-row">
                 <!--begin::Label-->
-                <label class="required fs-5 fw-semibold mb-2">Email</label>
+                <label class="required fs-5 fw-semibold mb-2">Terminal Code</label>
                 <!--end::Label-->
 
                 <!--begin::Input-->
@@ -290,12 +246,12 @@
                   type="text"
                   class="form-control form-control-solid"
                   placeholder="Email"
-                  name="email"
-                  v-model="tenantData.email"
+                  name="terminal_code"
+                  v-model="terminalData.terminal_code"
                 />
                 <div class="fv-plugins-message-container">
                   <div class="fv-help-block">
-                    <ErrorMessage name="email" />
+                    <ErrorMessage name="terminal_code" />
                   </div>
                 </div>
                 <!--end::Input-->
@@ -304,112 +260,29 @@
                 <!--begin::Input group-->
                 <div class="mb-5 fv-row">
                 <!--begin::Label-->
-                <label class="required fs-5 fw-semibold mb-2">Phone Number</label>
+                <label class="required fs-5 fw-semibold mb-2">Status</label>
                 <!--end::Label-->
 
                 <!--begin::Input-->
                 <Field
                   type="text"
                   class="form-control form-control-solid"
-                  placeholder="Role Name"
-                  name="phone_number"
-                  v-model="tenantData.phone_number"
+                  placeholder="Status"
+                  name="status"
+                  v-model="terminalData.status"
                 />
                 <div class="fv-plugins-message-container">
                   <div class="fv-help-block">
-                    <ErrorMessage name="phone_number" />
+                    <ErrorMessage name="status" />
                   </div>
                 </div>
                 <!--end::Input-->
                 
               </div>
-                <!--begin::Input group-->
-                <div class="mb-5 fv-row">
-                <!--begin::Label-->
-                <label class="required fs-5 fw-semibold mb-2">Wallet</label>
-                <!--end::Label-->
-
-                <!--begin::Input-->
-                <Field
-                  type="text"
-                  class="form-control form-control-solid"
-                  placeholder="Wallet"
-                  name="wallet"
-                  v-model="tenantData.wallet"
-                />
-                <div class="fv-plugins-message-container">
-                  <div class="fv-help-block">
-                    <ErrorMessage name="wallet" />
-                  </div>
-                </div>
-                <!--end::Input-->
-                
-              </div>  <!--begin::Input group-->
-                <!--begin::Input group-->
-                <div class="mb-5 fv-row">
-                <!--begin::Label-->
-                <label class="required fs-5 fw-semibold mb-2">No Of Terminals</label>
-                <!--end::Label-->
-
-                <!--begin::Input-->
-                <Field
-                  type="text"
-                  class="form-control form-control-solid"
-                  placeholder="Wallet"
-                  name="no_of_terminals"
-                  v-model="tenantData.no_of_terminals"
-                />
-                <div class="fv-plugins-message-container">
-                  <div class="fv-help-block">
-                    <ErrorMessage name="no_of_terminals" />
-                  </div>
-                </div>
-                <!--end::Input-->
-                
-              </div>  <!--begin::Input group-->
-              <div class="mb-5 fv-row">
-            <!--begin::Label-->
-            <label class="required fs-5 fw-semibold mb-2">Address 1</label>
-            <!--end::Label-->
-            <!--begin::Textarea-->
-            <Field
-              as="textarea"
-              class="form-control form-control-solid"
-              placeholder="Enter description"
-              name="address1"
-              v-model="tenantData.address1"
-              rows="3"
-            />
-            <div class="fv-plugins-message-container">
-              <div class="fv-help-block">
-                <ErrorMessage name="address1" />
-              </div>
-            </div>
-            <!--end::Textarea-->
-          </div>
-
-          <div class="mb-5 fv-row">
-            <!--begin::Label-->
-            <label class="required fs-5 fw-semibold mb-2">Address 2</label>
-            <!--end::Label-->
-            <!--begin::Textarea-->
-            <Field
-              as="textarea"
-              class="form-control form-control-solid"
-              placeholder="Enter additional notes"
-              name="address2"
-              v-model="tenantData.address2"
-              rows="4"
-            />
-            <div class="fv-plugins-message-container">
-              <div class="fv-help-block">
-                <ErrorMessage name="address2" />
-              </div>
-            </div>
-            <!--end::Textarea-->
-          </div>
-
-
+              <!--begin::Input group-->
+            
+            
+            
             </div>
             <!--end::Scroll-->
           </div>
@@ -462,16 +335,13 @@ import * as Yup from "yup";
 import Swal from "sweetalert2/dist/sweetalert2.js";
 import ApiService from "@/core/services/ApiService";
 
-interface Tenant {
+interface Terminal {
   id: number;
-  name: string;
-  slug: string;
-  no_of_terminals: string; 
-  email: string;
-  phone_number: string;
-  wallet: string;
-  address1: string;
-  address2: string;
+  branch_id: string;
+  terminal_name: string;
+  terminal_code: string; 
+  status: string;
+
 }
 
 export default defineComponent({
@@ -486,37 +356,33 @@ export default defineComponent({
     const modalRef = ref<null | HTMLElement>(null);
     const createAPIKeyModalRef = ref<null | HTMLElement>(null);
 
-    const tenants = ref<Tenant[]>([]);
-    const tenantData = reactive({
-      name: "",
-      slug: "",
-      no_of_terminals: "",
-      email: "",
-      phone_number: "",
-      wallet: "",
-      address1: "",
-      address2: "",
+    const terminals = ref<Terminal[]>([]);
+    const terminalData = reactive({
+
+      branch_id: "", 
+      terminal_name: "",
+      terminal_code: "",
+      status: "",
+    
+      
     });
     const validationSchema = Yup.object().shape({
-      name: Yup.string().required().label("Name"),
-      slug: Yup.string().required().label("Slug"),
-      no_of_terminals: Yup.string().required().label("No of terminals"),
-      email: Yup.string().required().label("Email"),
-      phone_number: Yup.string().required().label("Phone number"),
-      wallet: Yup.string().required().label("Wallet"),
-      address1: Yup.string().required().label("Address 1"),
-      address2: Yup.string().required().label("Address 2"),
+      branch_id: Yup.string().required().label("Branch"),
+      terminal_name: Yup.string().required().label("Terminal Name"),
+      terminal_code: Yup.string().required().label("Terminal Code"),
+      status: Yup.string().required().label("Status"),
+    
 
     });
 
     const loading = ref(false);
 
-    const fetchTenants = () => {
+    const fetchTerminals = () => {
       loading.value = true;
-      ApiService.get("http://localhost:8000/api/tenants")
+      ApiService.get("http://localhost:8000/api/terminals")
         .then((response) => {
-          tenants.value = response.data.data as Tenant[];
-          console.log("Fetched roles:", tenants.value);
+          terminals.value = response.data.data as Terminal[];
+          console.log("Fetched roles:", terminals.value);
         })
         .catch((error) => {
           console.error("Error fetching roles:", error);
@@ -535,7 +401,7 @@ export default defineComponent({
           loading.value = false;
         });
     };
-    onMounted(fetchTenants);
+    onMounted(fetchTerminals);
 
     const submit = () => {
       if (!submitButtonRef.value) {
@@ -551,11 +417,11 @@ export default defineComponent({
 
       return new Promise((resolve, reject) => {
         setTimeout(() => {
-          ApiService.post("http://localhost:8000/api/tenants", tenantData)
+          ApiService.post("http://localhost:8000/api/terminals", terminalData)
             .then((response) => {
-              console.log("Tenants created:", response.data);
+              console.log("Terminals created:", response.data);
               Swal.fire({
-                text: "Tenants created successfully!",
+                text: "Terminals created successfully!",
                 icon: "success",
                 buttonsStyling: false,
                 confirmButtonText: "Ok, got it!",
@@ -569,9 +435,9 @@ export default defineComponent({
               resolve(true); // Resolve the promise with true indicating success
             })
             .catch((error) => {
-              console.error("Error creating Tenants:", error);
+              console.error("Error creating Terminals:", error);
               Swal.fire({
-                text: "Failed to create Tenants. Please try again later.",
+                text: "Failed to create Terminals. Please try again later.",
                 icon: "error",
                 buttonsStyling: false,
                 confirmButtonText: "Ok, got it!",
@@ -594,14 +460,14 @@ export default defineComponent({
       });
     };
 
-    const deleteTenant = (id: number) => {
+    const deleteTerminal = (id: number) => {
       loading.value = true;
-      ApiService.delete(`http://localhost:8000/api/tenants/${id}`)
+      ApiService.delete(`http://localhost:8000/api/terminals/${id}`)
         .then(() => {
           // After successful deletion, fetch roles again to refresh the list
-          fetchTenants();
+          fetchTerminals();
           Swal.fire({
-            text: "Tenant deleted successfully!",
+            text: "Terminals deleted successfully!",
             icon: "success",
             buttonsStyling: false,
             confirmButtonText: "Ok, got it!",
@@ -612,9 +478,9 @@ export default defineComponent({
           });
         })
         .catch((error) => {
-          console.error("Error deleting Tenant:", error);
+          console.error("Error deleting Terminals:", error);
           Swal.fire({
-            text: "Failed to delete Tenant. Please try again later.",
+            text: "Failed to delete Terminals. Please try again later.",
             icon: "error",
             buttonsStyling: false,
             confirmButtonText: "Ok, got it!",
@@ -630,7 +496,7 @@ export default defineComponent({
     };
 
     // Fetch roles on component mount
-    onMounted(fetchTenants);
+    onMounted(fetchTerminals);
 
     // Define the widgetClasses computed property
     const widgetClasses = computed(() => ({
@@ -641,11 +507,11 @@ export default defineComponent({
     }));
 
     return {
-      tenantData,
+      terminalData,
       validationSchema,
       submit,
-      deleteTenant,
-      tenants,
+      deleteTerminal,
+      terminals,
       submitButtonRef,
       modalRef,
       createAPIKeyModalRef,
@@ -655,3 +521,8 @@ export default defineComponent({
   },
 });
 </script>
+
+
+
+
+

@@ -59,7 +59,7 @@
             <a
               class="nav-link btn btn-icon btn-active-color-primary btn-color-gray-500 btn-active-light"
               data-bs-toggle="tab"
-              href="#kt_aside_nav_tab_menu"
+              href="#kt_aside_nav_tab_sms"
             >
               <KTIcon icon-name="briefcase" icon-class="fs-2x" />
             </a>
@@ -77,7 +77,7 @@
             <a
               class="nav-link btn btn-icon btn-active-color-primary btn-color-gray-500 btn-active-light"
               data-bs-toggle="tab"
-              href="#kt_aside_nav_tab_subscription"
+              href="#kt_aside_nav_tab_email"
             >
               <KTIcon icon-name="chart-simple" icon-class="fs-2x" />
             </a>
@@ -95,7 +95,7 @@
             <a
               class="nav-link btn btn-icon btn-active-color-primary btn-color-gray-500 btn-active-light"
               data-bs-toggle="tab"
-              href="#kt_aside_nav_tab_tasks"
+              href="#kt_aside_nav_tab_feedback"
             >
               <KTIcon icon-name="shield-tick" icon-class="fs-2x" />
             </a>
@@ -113,12 +113,11 @@
             <a
               class="nav-link btn btn-icon btn-active-color-primary btn-color-gray-500 btn-active-light"
               data-bs-toggle="tab"
-              href="#kt_aside_nav_tab_notifications"
+              href="#kt_aside_nav_tab_loyalty"
             >
               <KTIcon icon-name="abstract-26" icon-class="fs-2x" />
             </a>
           </li>
-
           <li
             @click="enableSecondarySidebar"
             class="nav-item mb-2"
@@ -126,16 +125,35 @@
             data-bs-trigger="hover"
             data-bs-placement="right"
             data-bs-dismiss="click"
-            data-bs-original-title="Authors"
+            data-bs-original-title="Notifications"
           >
             <a
               class="nav-link btn btn-icon btn-active-color-primary btn-color-gray-500 btn-active-light"
               data-bs-toggle="tab"
-              href="#kt_aside_nav_tab_authors"
+              href="#kt_aside_nav_tab_branch"
             >
-              <KTIcon icon-name="add-files" icon-class="fs-2x" />
+              <KTIcon icon-name="abstract-26" icon-class="fs-2x" />
             </a>
           </li>
+          <li
+            @click="enableSecondarySidebar"
+            class="nav-item mb-2"
+            data-bs-toggle="tooltip"
+            data-bs-trigger="hover"
+            data-bs-placement="right"
+            data-bs-dismiss="click"
+            data-bs-original-title="Tasks"
+          >
+            <a
+              class="nav-link btn btn-icon btn-active-color-primary btn-color-gray-500 btn-active-light"
+              data-bs-toggle="tab"
+              href="#kt_aside_nav_tab_tenants"
+            >
+              <KTIcon icon-name="shield-tick" icon-class="fs-2x" />
+            </a>
+          </li>
+
+         
         </ul>
       </div>
     </div>
@@ -144,56 +162,11 @@
       class="aside-footer d-flex flex-column align-items-center flex-column-auto"
       id="kt_aside_footer"
     >
-      <div class="d-flex align-items-center mb-2">
-        <div
-          class="btn btn-icon btn-active-color-primary btn-color-gray-500 btn-active-light"
-          data-kt-menu-trigger="click"
-          data-kt-menu-overflow="true"
-          data-kt-menu-placement="top-start"
-          data-kt-menu-flip="top-end"
-          data-bs-toggle="tooltip"
-          data-bs-placement="right"
-          data-bs-dismiss="click"
-          title="Quick links"
-        >
-          <KTIcon icon-name="element-plus" icon-class="fs-2 fs-lg-1" />
-        </div>
-        <KTQuickLinksMenu></KTQuickLinksMenu>
-      </div>
+     
 
-      <div class="d-flex align-items-center mb-2">
-        <div
-          class="btn btn-icon btn-active-color-primary btn-color-gray-500 btn-active-light"
-          data-kt-menu-trigger="click"
-          data-kt-menu-overflow="true"
-          data-kt-menu-placement="top-start"
-          data-kt-menu-flip="top-end"
-          data-bs-toggle="tooltip"
-          data-bs-placement="right"
-          data-bs-dismiss="click"
-          title="Notifications"
-        >
-          <KTIcon icon-name="element-11" icon-class="fs-2 fs-lg-1" />
-        </div>
-        <KTNotificationsMenu></KTNotificationsMenu>
-      </div>
+    
 
-      <div class="d-flex align-items-center mb-3">
-        <div
-          class="btn btn-icon btn-active-color-primary btn-color-gray-500 btn-active-light"
-          data-kt-menu-trigger="click"
-          data-kt-menu-overflow="true"
-          data-kt-menu-placement="top-start"
-          data-kt-menu-flip="top-end"
-          data-bs-toggle="tooltip"
-          data-bs-placement="right"
-          data-bs-dismiss="click"
-          title="Activity Logs"
-          id="kt_activities_toggle"
-        >
-          <KTIcon icon-name="chart-simple" icon-class="fs-2 fs-lg-1" />
-        </div>
-      </div>
+    
 
       <div
         class="d-flex align-items-center mb-10"
